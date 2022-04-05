@@ -1,0 +1,209 @@
+<app-head></app-head>
+<app-navbar></app-navbar>
+<div class="slim-mainpanel">
+    <div class="container">
+        <div class="slim-pageheader">
+            <ol class="breadcrumb slim-breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/registroclientes">Inicio</a></li>
+                <li class="breadcrumb-item"><a>Listado de Clientes</a></li>
+            </ol>
+            <h6 class="slim-pagetitle">Listado de Clientes</h6>
+        </div>
+        <div class="section-wrapper mg-t-20">
+            <div class="row mg-t-12 mg-b-12 mg-l-12 mg-b-10">
+                <div class="col-lg-5">
+                    <button class="btn btn-info pull-right grillbutton" (click)="getAllCustomer()">Refrescar</button>
+                </div>
+                <div class="col-lg-7" style="padding-left: 496px;">
+                    <button class="btn btn-info pull-right grillbutton" data-bs-toggle="modal" data-bs-target="#modaldemo3">
+                        <i class="fa fa-plus fa-lg"></i> Nuevo</button>
+                </div>
+                <div class="table-responsive" style="margin-top: 20px;">
+                    <table class="table table-bordered table-colored table-info table-hover mg-b-0">
+                        <thead>
+                            <tr class="primary">
+                                <th class="text-center" scope="col">Id</th>
+                                <th class="text-center" scope="col">Primer Nombre</th>
+                                <th class="text-center" scope="col">Segundo Nombre</th>
+                                <th class="text-center" scope="col">Primer Apellido</th>
+                                <th class="text-center" scope="col">Segundo Apellido</th>
+                                <th class="text-center" scope="col">Telefono</th>
+                                <th class="text-center" scope="col">Direccion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of customers">
+                                <th class="text-center">{{item.id}}</th>
+                                <td class="text-center">{{item.firstName}}</td>
+                                <td class="text-center">{{item.secondName}}</td>
+                                <td class="text-center">{{item.firstSurName}}</td>
+                                <td class="text-center">{{item.secondSurName}}</td>
+                                <td class="text-center">{{item.phoneOne}}</td>
+                                <td class="text-center">{{item.mainAddressOne}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div id="modaldemo3" class="modal fade">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content tx-size-sm">
+                        <div class="modal-header pd-x-20">
+                            <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Sistema de Registro de Clientes
+                            </h6>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body pd-20">
+                            <div class="form-layout form-layout-2">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Primer Nombre: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="1nomUser" class="form-control" placeholder="Primer Nombre*" [(ngModel)]="customer.firstName" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Segundo Nombre: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="2nomUser" class="form-control" placeholder="Segundo Nombre*" [(ngModel)]="customer.secondName" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Primer Apellido: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="1apeUser" class="form-control" placeholder="Primer Apellido*" [(ngModel)]="customer.firstSurName" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Segundo Apellido: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="2apeUser" class="form-control" placeholder="Segundo Apellido*" [(ngModel)]="customer.secondSurName" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Numero de Pasaporte: </label>
+                                            <input type="text" name="passport" class="form-control" placeholder="Numero de Pasaporte" [(ngModel)]="customer.passport" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Numero de Celular 1: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="cellphone1" class="form-control" placeholder="Numero de Celular 1*" [(ngModel)]="customer.phoneOne" /><br>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Numero de Celular 2: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="cellphone2" class="form-control" placeholder="Numero de Celular 2*" [(ngModel)]="customer.phoneOne" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Dirección Principal: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="adress1" class="form-control" placeholder="Dirección Principal*" [(ngModel)]="customer.mainAddressOne" />
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Dirección Opcional: </label>
+                                            <input type="text" name="adress2" class="form-control" placeholder="Dirección Opcional" [(ngModel)]="customer.optionalAddres" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Teléfono de Referencia 1:</label>
+                                            <input type="text" name="telephoneref1" class="form-control" placeholder="Teléfono de Referencia 1" [(ngModel)]="customer.referencePhoneOne" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group mg-md-l--1">
+                                            <label class="form-control-label">Teléfono de Referencia 2:</label>
+                                            <input type="text" name="telephoneref2" class="form-control" placeholder="Teléfono de Referencia 2" [(ngModel)]="customer.referencePhoneTwo" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-4 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group bd-t-0-force">
+                                            <label class="form-control-label">Estado Civil: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="status" class="form-control" placeholder="Estado Civil*" [(ngModel)]="customer.civilStatus" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-8 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group bd-t-0-force">
+                                            <label class="form-control-label">Nombre del Contacto: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="nameperscontact" class="form-control" placeholder="Nombre del Contacto*" [(ngModel)]="customer.contactName" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-8 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group bd-t-0-force">
+                                            <label class="form-control-label">Celular del Contacto: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="telperscontact" class="form-control" placeholder="Celular del Contacto*" [(ngModel)]="customer.contactPhone" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-8 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group bd-t-0-force">
+                                            <label class="form-control-label">Nombre de la Empresa:</label>
+                                            <input type="text" name="empresalaboral" class="form-control" placeholder="Nombre de la Empresa" [(ngModel)]="customer.companyName" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-8 -->
+                                    <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="form-group bd-t-0-force">
+                                            <label class="form-control-label">Profesión: <span
+                                                    class="tx-danger">*</span></label>
+                                            <input type="text" name="profession" class="form-control" placeholder="Profesión*" [(ngModel)]="customer.profession" /><br>
+                                        </div>
+                                    </div>
+                                    <!-- col-8 -->
+                                </div>
+                                <!-- row -->
+                                <div class="form-group col-md-12">
+                                    <div class="alert alert-{{ error ? 'danger' : 'success' }} message" role="alert" *ngIf="msg != ''">
+                                        {{msg}}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- modal-body -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-primary buttonstyles" (click)="saveCustomer()">Ingresar
+                                    Cliente</button>
+                                <button type="button" class="btn btn-outline-primary buttonstyles" (click)="clearCustomer()">Limpiar
+                                    Formulario</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal-dialog -->
+                </div>
+                <!-- modal -->
+            </div>
+            <!-- section-wrapper -->
+        </div>
+    </div>
+    <app-footer></app-footer>

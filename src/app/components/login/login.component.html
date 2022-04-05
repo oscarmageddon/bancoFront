@@ -1,0 +1,82 @@
+<div class="back"></div>
+<div class="elementor"></div>
+<div class="container">
+    <br>
+    <div class="loginbox">
+        <div class="login-wrap">
+            <div class="login-html">
+
+                <img src="../../assets/img/logoBA.png" alt="" class="logo">
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
+                    In</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                <div class="login-form">
+                    <div class="sign-in-htm">
+                        <div class="group">
+                            <label for="usrname" class="label">Username</label>
+                            <input id="usrname" type="text" class="input" name="usrname" [(ngModel)]="userLogin.username" />
+                        </div>
+                        <div class="group">
+                            <label for="password" class="label">Password</label>
+                            <input id="password" type="password" class="input" data-type="password" name=“password” [(ngModel)]="userLogin.password" />
+                        </div>
+                        <div class="group">
+                            <label style="color: white;"> <small> Remember that your session will close itself after
+                                    five minutes of inactivity.</small></label>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Login" (click)="logInUser()" [routerLink]="['/addClient']" />
+                        </div>
+                        <br *ngIf="lgnErr == ''">
+                        <br *ngIf="lgnErr == ''">
+                        <div class="alert alert-danger error" role="alert" *ngIf="lgnErr != ''">
+                            {{lgnErr}}
+                        </div>
+                        <br *ngIf="lgnErr == ''">
+                        <div class="row">
+                            <div class="col">
+                                <div class="footertitle">
+                                    <p>
+                                        FINANCIAL OPERATION SYSTEM
+                                    </p>
+                                </div>
+                                <div class="footerbody">
+                                    <p>
+                                        If you don't have access, please contact your manager, or call 6006011234, IT Operations security department, ext. 301.
+                                    </p>
+                                    <p> ©2022 Las Americas Bank</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sign-up-htm">
+                        <div class="group">
+                            <label for="username" class="label">Username</label>
+                            <input id="username" type="text" class="input" name=“username” [(ngModel)]="userSignup.username" />
+                        </div>
+                        <div class="group">
+                            <label for="passwordsup" class="label">Password</label>
+                            <input id="passwordsup" type="password" class="input" data-type="password" name=“passwordsup” [(ngModel)]="userSignup.password" />
+                        </div>
+                        <div class="group">
+                            <label for="password2" class="label">Repeat Password</label>
+                            <input id="password2" type="password" class="input" data-type="password" name=“password2” [(ngModel)]="repeatedPass" />
+                        </div>
+                        <div class="group">
+                            <label for="fullname" class="label">Full Name</label>
+                            <input id="fullname" type="text" class="input" [(ngModel)]="userSignup.fullname" />
+                        </div>
+                        <br>
+                        <div class="group">
+                            <input type="submit" class="button" value="Register" name="register" (click)="signUpUser()" />
+                        </div>
+                        <br>
+                        <div class="alert alert-{{ sgupError ? 'danger' : 'success' }} error" role="alert" *ngIf="sgupMssg != ''">
+                            {{ sgupMssg }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
